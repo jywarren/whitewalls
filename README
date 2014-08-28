@@ -1,12 +1,21 @@
-                                      oooo  oooo           
-                                      `888  `888           
- .oooo.o  .ooooo.  oooo d8b  .ooooo.   888   888   .oooo.o 
-d88(  "8 d88' `"Y8 `888""8P d88' `88b  888   888  d88(  "8 
-`"Y88b.  888        888     888   888  888   888  `"Y88b.  
-o.  )88b 888   .o8  888     888   888  888   888  o.  )88b 
-8""888P' `Y8bod8P' d888b    `Y8bod8P' o888o o888o 8""888P' 
-                                                           
-===========================================================
+Whitewalls
+========================
 
-A sidescrolling mural you can draw on
+A touch-enabled collaborative drawing app for projection work
+
+It's pretty inefficient right now, and allows infinite layers, which is not a good idea. Updates every half-second, which is a pain for the server. Bogs down on initial load if there are too many layers.
+
+Uses canvas and uses data URLs, so we can do 'erase' if we want to in the future but why bother.
+
+Todo:
+
+* needs some bootstrappery maybe
+* limit # of layers to, maybe 2 or 3, notify user that you can only watch after that
+* distinguish between "draw" and "watch" - currently you are just watching unless you start to draw
+
+Thoughts:
+
+We could do this purely P2P using PeerConnect or faster with sockets, and maybe just share a canvas instead of having layers? There'd probably have to be a "host". 
+
+
 
