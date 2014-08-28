@@ -1,0 +1,55 @@
+<style>
+  html {background:#222;}
+  body {
+    width:1024px;
+    margin:auto;
+    overflow:hidden;
+  }
+  #canvas {background:none;position:absolute;z-index:2;}
+  #cursor {background:red;width:6px;height:6px;position:absolute;z-index:3}
+  #layers {
+    background:white;
+    width:1024px;
+    height:768px;
+    position:absolute;
+    z-index:1;
+  }
+  #layers img {
+    width:1024px;
+    height:768px;
+    position:absolute; top:0; left:0;
+    z-index:2;
+  }
+  #canvas {
+    -moz-opacity: 0.8;
+    opacity:.8;
+    filter:alpha(opacity=80);
+  }
+  #fresh {
+    position:absolute; top:0; left:0;
+    width:20px;
+    height:20px;
+    z-index:1;
+    padding:20px;
+    background:red;
+    font-size:3em;
+  }
+</style>
+
+<a onClick="$W.fresh()" id="fresh"></a>
+
+<div id="cursor" style="display:none;"></div>
+<div id="layers">
+<% @panel.layers.each do |layer| %><img src="<%= layer.img %>" /><% end %>
+</div>
+
+<canvas id="canvas" width="1024" height="768"></canvas>
+
+<script>
+  (function(){
+    Page = {
+      id: <%= @panel.id %>
+    }
+    $W.initialize()
+  })()
+</script>

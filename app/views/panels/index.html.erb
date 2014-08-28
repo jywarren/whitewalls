@@ -1,0 +1,21 @@
+<h1>Whitewalls</h1>
+
+<div id="panels">
+
+<% @panels.each do |panel| %>
+<div class="panel">
+	<a href="/panel/<%= panel.id %>"><%= panel.name %></a>
+</div>
+<% end %>
+
+</div>
+
+<hr />
+
+<form id="new" method="post" action="/panel/create">
+
+<input name="name" type="text" />
+
+<input value="Create" type="submit" />
+
+</form>
